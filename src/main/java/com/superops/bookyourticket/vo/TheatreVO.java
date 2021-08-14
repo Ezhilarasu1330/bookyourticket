@@ -8,7 +8,16 @@ public class TheatreVO extends BaseVO {
     private String theatreName;
     private String theatreLoc;
     private String status;
+    private String logoUrl;
     private List<ScreenInfoVO> screenInfoList;
+
+    public String getLogoUrl() {
+        return logoUrl;
+    }
+
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
+    }
 
     public List<ScreenInfoVO> getScreenInfoList() {
         return screenInfoList;

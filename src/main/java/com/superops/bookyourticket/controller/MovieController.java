@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/movies")
+@CrossOrigin("*")
 public class MovieController extends BaseController {
 
     private static final Logger applogger = LogManager.getLogger(MovieController.class);

@@ -8,13 +8,11 @@ import com.superops.bookyourticket.vo.ResponseVO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/theatre")
+@CrossOrigin("*")
 public class TheatreController extends BaseController {
 
     private static final Logger applogger = LogManager.getLogger(TheatreController.class);
@@ -63,6 +61,18 @@ public class TheatreController extends BaseController {
         final ResponseVO responseVO = new ResponseVO();
         try {
             final BaseVO response = theatreService.getTheatreAndShowsInfo(id);
+            super.success(responseVO, response, MessageConstants.THEATRE_INFO_FETCHED_SUCCESS);
+        } catch (final Exception e) {
+            super.userErrorHandler(responseVO, e);
+        }
+        return responseVO;
+    }
+
+    @GetMapping("/{theatreId}/shows/{showId}/seats")
+    public ResponseVO getAvailableSeats(@PathVariable Long theatreId, @PathVariable Long showId) {
+        final ResponseVO responseVO = new ResponseVO();
+        try {
+            final BaseVO response = theatreService.getTheatreAndShowsInfo(theatreId);
             super.success(responseVO, response, MessageConstants.THEATRE_INFO_FETCHED_SUCCESS);
         } catch (final Exception e) {
             super.userErrorHandler(responseVO, e);

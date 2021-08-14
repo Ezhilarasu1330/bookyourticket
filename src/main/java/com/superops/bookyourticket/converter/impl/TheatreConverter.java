@@ -19,10 +19,10 @@ public class TheatreConverter implements ITheatreConverter {
         final List<TheatreVO> theatreVOs = new LinkedList<>();
         data.forEach(theatreInfo -> {
             final TheatreVO theatreVO = new TheatreVO();
-
             theatreVO.setTheatreId(theatreInfo.getTheatreId());
             theatreVO.setTheatreName(theatreInfo.getTheatreName());
             theatreVO.setTheatreLoc(theatreInfo.getTheatreLoc());
+            theatreVO.setLogoUrl(theatreInfo.getLogoUrl());
             theatreVO.setStatus(theatreInfo.getStatus());
             theatreVOs.add(theatreVO);
         });
@@ -33,6 +33,7 @@ public class TheatreConverter implements ITheatreConverter {
     public void convertToTheatreVO(TheatreInfo theatreInfo, TheatreVO empty) throws ApplicationError {
         empty.setTheatreId(theatreInfo.getTheatreId());
         empty.setTheatreName(theatreInfo.getTheatreName());
+        empty.setLogoUrl(theatreInfo.getLogoUrl());
         empty.setTheatreLoc(theatreInfo.getTheatreLoc());
         empty.setStatus(theatreInfo.getStatus());
     }
@@ -42,6 +43,7 @@ public class TheatreConverter implements ITheatreConverter {
         empty.setScreenInfoList(screenInfoVOS);
         empty.setTheatreId(theatreInfo.getTheatreId());
         empty.setTheatreName(theatreInfo.getTheatreName());
+        empty.setLogoUrl(theatreInfo.getLogoUrl());
         empty.setTheatreLoc(theatreInfo.getTheatreLoc());
         empty.setStatus(theatreInfo.getStatus());
     }
