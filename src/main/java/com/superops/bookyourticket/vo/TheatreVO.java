@@ -1,11 +1,22 @@
 package com.superops.bookyourticket.vo;
 
+import java.util.List;
+
 public class TheatreVO extends BaseVO {
 
     private long theatreId;
     private String theatreName;
     private String theatreLoc;
     private String status;
+    private List<ScreenInfoVO> screenInfoList;
+
+    public List<ScreenInfoVO> getScreenInfoList() {
+        return screenInfoList;
+    }
+
+    public void setScreenInfoList(List<ScreenInfoVO> screenInfoList) {
+        this.screenInfoList = screenInfoList;
+    }
 
     public long getTheatreId() {
         return theatreId;

@@ -1,10 +1,9 @@
 package com.superops.bookyourticket.converter.impl;
 
 import com.superops.bookyourticket.converter.ITheatreConverter;
-import com.superops.bookyourticket.model.MovieInfo;
+import com.superops.bookyourticket.exception.ApplicationError;
 import com.superops.bookyourticket.model.TheatreInfo;
-import com.superops.bookyourticket.vo.MovieVO;
-import com.superops.bookyourticket.vo.MovietListVO;
+import com.superops.bookyourticket.vo.ScreenInfoVO;
 import com.superops.bookyourticket.vo.TheatreListVO;
 import com.superops.bookyourticket.vo.TheatreVO;
 import org.springframework.stereotype.Service;
@@ -31,7 +30,16 @@ public class TheatreConverter implements ITheatreConverter {
     }
 
     @Override
-    public void convertToTheatreVO(TheatreInfo theatreInfo, TheatreVO empty) {
+    public void convertToTheatreVO(TheatreInfo theatreInfo, TheatreVO empty) throws ApplicationError {
+        empty.setTheatreId(theatreInfo.getTheatreId());
+        empty.setTheatreName(theatreInfo.getTheatreName());
+        empty.setTheatreLoc(theatreInfo.getTheatreLoc());
+        empty.setStatus(theatreInfo.getStatus());
+    }
+
+    @Override
+    public void convertToTheatreAndScreenVO(TheatreInfo theatreInfo, List<ScreenInfoVO> screenInfoVOS, TheatreVO empty) throws ApplicationError {
+        empty.setScreenInfoList(screenInfoVOS);
         empty.setTheatreId(theatreInfo.getTheatreId());
         empty.setTheatreName(theatreInfo.getTheatreName());
         empty.setTheatreLoc(theatreInfo.getTheatreLoc());

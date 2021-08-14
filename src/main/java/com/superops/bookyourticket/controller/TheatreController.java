@@ -1,6 +1,7 @@
 package com.superops.bookyourticket.controller;
 
 import com.superops.bookyourticket.constants.MessageConstants;
+import com.superops.bookyourticket.service.IShowInfoService;
 import com.superops.bookyourticket.service.ITheatreService;
 import com.superops.bookyourticket.vo.BaseVO;
 import com.superops.bookyourticket.vo.ResponseVO;
@@ -45,11 +46,23 @@ public class TheatreController extends BaseController {
         return responseVO;
     }
 
-    @GetMapping("/{id}/shows")
-    public ResponseVO getTheatreAndShows(@PathVariable Long id) {
+    @GetMapping("/{id}/screeninfo")
+    public ResponseVO getTheatreInfoAndScreenInfo(@PathVariable Long id) {
         final ResponseVO responseVO = new ResponseVO();
         try {
-            final BaseVO response = theatreService.getTheatreInfo(id);
+            final BaseVO response = theatreService.getTheatreAndScreenInfo(id);
+            super.success(responseVO, response, MessageConstants.THEATRE_INFO_FETCHED_SUCCESS);
+        } catch (final Exception e) {
+            super.userErrorHandler(responseVO, e);
+        }
+        return responseVO;
+    }
+
+    @GetMapping("/{id}/shows")
+    public ResponseVO getTheatreInfoAndShows(@PathVariable Long id) {
+        final ResponseVO responseVO = new ResponseVO();
+        try {
+            final BaseVO response = theatreService.getTheatreAndShowsInfo(id);
             super.success(responseVO, response, MessageConstants.THEATRE_INFO_FETCHED_SUCCESS);
         } catch (final Exception e) {
             super.userErrorHandler(responseVO, e);
