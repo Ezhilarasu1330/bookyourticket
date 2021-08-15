@@ -25,7 +25,7 @@
  cd bookyourticket
 ```
 
-**2. Create a application.properties file in resources folder and add the following**
+**2. Update the application.properties file in resources folder and add the following**
 
 ```
 spring.datasource.url = jdbc:mysql://localhost:3306/book_your_ticket
