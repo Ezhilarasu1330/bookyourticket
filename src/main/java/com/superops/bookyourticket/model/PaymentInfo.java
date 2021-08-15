@@ -1,6 +1,5 @@
 package com.superops.bookyourticket.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,26 +13,27 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "BOOKED_SEATS_INFO")
-public class BookedSeatInfo {
+@Table(name = "PAYMENT_INFO")
+public class PaymentInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "BOOKED_SEATS_ID")
-    private long bookedSeatId;
+    @Column(name = "PAYMENT_ID")
+    private long paymentId;
 
-    @ManyToOne
-    @JsonManagedReference
-    @JoinColumn(name = "SHOW_ID", referencedColumnName = "SHOW_ID")
-    private ShowInfo showInfo;
+    @Column(name = "PAYMENT_METHOD")
+    private String paymentMethod;
 
-    @ManyToOne
-    @JsonManagedReference
-    @JoinColumn(name = "SCREEN_SEAT_ID", referencedColumnName = "SCREEN_SEAT_ID")
-    private ScreenSeatInfo screenSeatInfo;
+    @Column(name = "TRANSACTION_ID")
+    private String transactionID;
 
-    @ManyToOne
-    @JsonManagedReference
+    @Column(name = "PAYMENT_STATUS")
+    private String paymentStatus;
+
+    @Column(name = "DISCOUNT_COUPON_ID")
+    private String discountCouponId;
+
+    @OneToOne
     @JoinColumn(name = "BOOKING_ID", referencedColumnName = "BOOKING_ID")
     private BookingInfo bookingInfo;
 

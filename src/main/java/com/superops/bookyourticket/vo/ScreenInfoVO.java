@@ -2,7 +2,7 @@ package com.superops.bookyourticket.vo;
 
 import java.util.List;
 
-public class ScreenInfoVO {
+public class ScreenInfoVO extends BaseVO{
 
     private long screenId;
     private String screenName;

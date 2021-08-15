@@ -1,12 +1,15 @@
 package com.superops.bookyourticket.service.impl;
 
+import com.superops.bookyourticket.converter.IScreenInfoConverter;
 import com.superops.bookyourticket.exception.ApplicationError;
 import com.superops.bookyourticket.model.ScreenInfo;
+import com.superops.bookyourticket.model.ScreenSeatInfo;
 import com.superops.bookyourticket.model.ShowInfo;
-import com.superops.bookyourticket.model.TheatreInfo;
+import com.superops.bookyourticket.repository.ScreenSeatInfoRepository;
 import com.superops.bookyourticket.repository.ShowInfoRepository;
 import com.superops.bookyourticket.service.IShowInfoService;
-import com.superops.bookyourticket.vo.ScreenInfoVO;
+import com.superops.bookyourticket.vo.BaseVO;
+import com.superops.bookyourticket.vo.ScreenSeatInfoListVO;
 import com.superops.bookyourticket.vo.ShowInfoVO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,6 +26,12 @@ public class ShowInfoService implements IShowInfoService {
 
     @Autowired
     private ShowInfoRepository showInfoRepo;
+
+    @Autowired
+    private ScreenSeatInfoRepository screenSeatInfoRepo;
+
+    @Autowired
+    private IScreenInfoConverter screenInfoConverter;
 
     public List<ShowInfoVO> getShowListByScreenInfo(ScreenInfo screenInfo) throws ApplicationError {
         try {
@@ -45,5 +54,17 @@ public class ShowInfoService implements IShowInfoService {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public BaseVO getShowAndSeatsInfo(Long showId) throws ApplicationError {
+        ShowInfo showInfo = showInfoRepo.findById(showId).get();
+        List<ScreenSeatInfo> screenSeatInfoList = screenSeatInfoRepo.findByScreenInfo(showInfo.getScreenInfo());
+        ScreenSeatInfoListVO empty = new ScreenSeatInfoListVO();
+        empty.setTheatreName(showInfo.getScreenInfo().getTheatreInfo().getTheatreName());
+        empty.setMovieName(showInfo.getMovieInfo().getMovieName());
+        empty.setShowStartTime(showInfo.getShowStartTime());
+        screenInfoConverter.convertToScreenSeatListVO(showInfo, screenSeatInfoList, empty);
+        return empty;
     }
 }

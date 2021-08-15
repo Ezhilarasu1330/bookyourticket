@@ -1,10 +1,8 @@
 package com.superops.bookyourticket.vo;
 
-import com.superops.bookyourticket.model.MovieInfo;
-
 import java.util.Date;
 
-public class ShowInfoVO {
+public class ShowInfoVO extends BaseVO{
 
     private long showId;
     private String movieName;

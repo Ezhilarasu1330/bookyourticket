@@ -32,3 +32,6 @@ build/
 ### VS Code ###
 .vscode/
 logs/application-error.log
+*.log
+*.log
+logs/application-error.log

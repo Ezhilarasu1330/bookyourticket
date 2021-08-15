@@ -2,7 +2,7 @@ package com.superops.bookyourticket.vo;
 
 import java.util.List;
 
-public class ShowInfoListVO {
+public class ShowInfoListVO extends BaseVO{
 
     private List<ShowInfoVO> showInfoVOS;
 

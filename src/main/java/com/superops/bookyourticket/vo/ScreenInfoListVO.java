@@ -4,7 +4,7 @@ import com.superops.bookyourticket.model.ScreenInfo;
 
 import java.util.List;
 
-public class ScreenInfoListVO {
+public class ScreenInfoListVO extends BaseVO{
 
     private List<ScreenInfo> screenInfo;
 

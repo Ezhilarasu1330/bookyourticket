@@ -1,6 +1,6 @@
 package com.superops.bookyourticket.vo;
 
-public class ResponseVO {
+public class ResponseVO extends BaseVO{
 
     private int code;
     private String status;

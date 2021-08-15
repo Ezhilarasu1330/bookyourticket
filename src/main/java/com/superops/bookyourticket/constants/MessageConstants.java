@@ -30,6 +30,7 @@ public class MessageConstants {
 
     public final static String MOVIE_LIST_FETCHED_SUCCESS = "Movie list fetched successfully";
     public final static String MOVIE_INFO_FETCHED_SUCCESS = "Movie info fetched successfully";
+    public final static String SCREEN_SEAT_INFO_FETCHED_SUCCESS = "Screen seat info fetched successfully";
     public final static String USER_REGISTER_SUCCESS = "User registered successfully";
     public final static String USER_AUTHENTICATE_SUCCESS = "User authenticated successfully";
 
