@@ -26,7 +26,7 @@ public class MovieController extends BaseController {
             final BaseVO response = this.movieService.getMovieList();
             super.success(responseVO, response, MessageConstants.MOVIE_LIST_FETCHED_SUCCESS);
         } catch (final Exception e) {
-            super.userErrorHandler(responseVO, e);
+            super.utilityErrorHandler(responseVO, e);
         }
         return responseVO;
     }
@@ -38,7 +38,7 @@ public class MovieController extends BaseController {
             final BaseVO response = this.movieService.getMovieInfo(id);
             super.success(responseVO, response, MessageConstants.MOVIE_INFO_FETCHED_SUCCESS);
         } catch (final Exception e) {
-            super.userErrorHandler(responseVO, e);
+            super.utilityErrorHandler(responseVO, e);
         }
         return responseVO;
     }

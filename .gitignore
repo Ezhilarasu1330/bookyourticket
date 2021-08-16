@@ -36,3 +36,5 @@ logs/application-error.log
 *.log
 logs/application-error.log
 *.log
+*.log
+*.log

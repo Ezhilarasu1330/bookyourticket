@@ -12,17 +12,4 @@ import org.springframework.web.bind.annotation.*;
 public class BookingController extends BaseController {
 
     private static final Logger applogger = LogManager.getLogger(BookingController.class);
-
-    @PostMapping("/ticket")
-    public ResponseVO getMovieList(@RequestBody BookTicketReqVO bookTicketReqVO) {
-        final ResponseVO responseVO = new ResponseVO();
-        try {
-            applogger.info("Booking Request : " + bookTicketReqVO.toString());
-
-
-        } catch (final Exception e) {
-            super.userErrorHandler(responseVO, e);
-        }
-        return responseVO;
-    }
 }

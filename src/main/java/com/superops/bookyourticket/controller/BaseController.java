@@ -51,4 +51,18 @@ public class BaseController {
 
         }
     }
+
+
+    public void utilityErrorHandler(final ResponseVO responseVO, final Throwable t) {
+        switch (t.getMessage()) {
+            case MessageConstants.USER_CAN_BOOK_MAX_6_TICKETS:
+                this.error(responseVO, ResponseStatus.MAX_6_ALLOWED_TO_BOOK.getCode(), ResponseStatus.MAX_6_ALLOWED_TO_BOOK.getMessage(), t);
+                break;
+            case MessageConstants.TICKET_ALREADY_BOOKED_BY_OTHER_USER:
+                this.error(responseVO, ResponseStatus.TICKET_ALREADY_BOOKED_BY_OTHER_USER.getCode(), ResponseStatus.TICKET_ALREADY_BOOKED_BY_OTHER_USER.getMessage(), t);
+                break;
+            default:
+                this.error(responseVO, ResponseStatus.UNKNOWN_ERROR.getCode(), ResponseStatus.UNKNOWN_ERROR.getMessage(), t);
+        }
+    }
 }

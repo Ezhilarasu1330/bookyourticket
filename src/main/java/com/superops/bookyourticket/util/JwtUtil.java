@@ -1,5 +1,6 @@
 package com.superops.bookyourticket.util;
 
+import com.superops.bookyourticket.controller.ShowController;
 import com.superops.bookyourticket.model.UserInfo;
 import com.superops.bookyourticket.vo.UserDetailVO;
 import io.jsonwebtoken.Claims;
@@ -69,6 +70,8 @@ public class JwtUtil {
         final Boolean isValid = userName.equals(userDetails.getUsername()) && !isTokenExpired(token);
         if (isValid) {
             final Claims claims = this.extractAllClaims(token);
+
+            ShowController.userId = Long.valueOf(claims.get("userId").toString());
         }
         return isValid;
     }

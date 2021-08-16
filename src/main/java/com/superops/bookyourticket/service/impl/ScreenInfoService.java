@@ -52,7 +52,6 @@ public class ScreenInfoService implements IScreenInfoService {
             List<ScreenInfo> screenInfoList = screenInfoRepo.findByTheatreInfo(theatreInfo);
             List<ScreenInfoVO> screenInfoVOS = new ArrayList<>();
             screenInfoList.forEach(screenInfo -> {
-
                 ScreenInfoVO screenInfoVO = new ScreenInfoVO();
                 try {
                     screenInfoVO.setShowInfo(showInfoService.getShowListByScreenInfo(screenInfo));

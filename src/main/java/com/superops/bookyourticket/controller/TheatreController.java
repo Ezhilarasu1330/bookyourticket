@@ -27,7 +27,7 @@ public class TheatreController extends BaseController {
             final BaseVO response = theatreService.getTheatreList();
             super.success(responseVO, response, MessageConstants.THEATRE_LIST_FETCHED_SUCCESS);
         } catch (final Exception e) {
-            super.userErrorHandler(responseVO, e);
+            super.utilityErrorHandler(responseVO, e);
         }
         return responseVO;
     }
@@ -39,7 +39,7 @@ public class TheatreController extends BaseController {
             final BaseVO response = theatreService.getTheatreInfo(id);
             super.success(responseVO, response, MessageConstants.THEATRE_INFO_FETCHED_SUCCESS);
         } catch (final Exception e) {
-            super.userErrorHandler(responseVO, e);
+            super.utilityErrorHandler(responseVO, e);
         }
         return responseVO;
     }
@@ -51,7 +51,7 @@ public class TheatreController extends BaseController {
             final BaseVO response = theatreService.getTheatreAndScreenInfo(id);
             super.success(responseVO, response, MessageConstants.THEATRE_INFO_FETCHED_SUCCESS);
         } catch (final Exception e) {
-            super.userErrorHandler(responseVO, e);
+            super.utilityErrorHandler(responseVO, e);
         }
         return responseVO;
     }
@@ -63,7 +63,7 @@ public class TheatreController extends BaseController {
             final BaseVO response = theatreService.getTheatreAndShowsInfo(id);
             super.success(responseVO, response, MessageConstants.THEATRE_INFO_FETCHED_SUCCESS);
         } catch (final Exception e) {
-            super.userErrorHandler(responseVO, e);
+            super.utilityErrorHandler(responseVO, e);
         }
         return responseVO;
     }
@@ -75,7 +75,7 @@ public class TheatreController extends BaseController {
             final BaseVO response = theatreService.getTheatreAndShowsInfo(theatreId);
             super.success(responseVO, response, MessageConstants.THEATRE_INFO_FETCHED_SUCCESS);
         } catch (final Exception e) {
-            super.userErrorHandler(responseVO, e);
+            super.utilityErrorHandler(responseVO, e);
         }
         return responseVO;
     }

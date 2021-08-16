@@ -17,6 +17,8 @@ public enum ResponseStatus {
     USER_PHONE_NUMBER_NOT_VALID(MessageConstants.VALIDATION_CODE, MessageConstants.USER_PHONE_NUMBER_NOT_VALID),
     INVALID_REQUEST(MessageConstants.VALIDATION_CODE, MessageConstants.INVALID_REQUEST),
     ACC_DISABLED(MessageConstants.ACCESS_FORBIDDEN_CODE, MessageConstants.ACC_DISABLED),
+    MAX_6_ALLOWED_TO_BOOK(MessageConstants.SUCCESS_CODE, MessageConstants.USER_CAN_BOOK_MAX_6_TICKETS),
+    TICKET_ALREADY_BOOKED_BY_OTHER_USER(MessageConstants.SUCCESS_CODE, MessageConstants.TICKET_ALREADY_BOOKED_BY_OTHER_USER),
 
     SUCCESS(MessageConstants.SUCCESS_CODE, MessageConstants.SUCCESS),
     UNKNOWN_ERROR(MessageConstants.UNKNOWN_ERROR_CODE, MessageConstants.UNKNOWN_ERROR);

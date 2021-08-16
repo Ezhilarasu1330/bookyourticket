@@ -36,10 +36,10 @@ public class BookingInfo {
     @JoinColumn(name = "SHOW_ID", referencedColumnName = "SHOW_ID")
     private ShowInfo showInfo;
 
-    @OneToMany(mappedBy = "bookingInfo", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = BookedSeatInfo.class)
-    @Fetch(FetchMode.SUBSELECT)
-    @JsonBackReference
-    private List<BookedSeatInfo> bookedSeatInfos;
+//    @OneToMany(mappedBy = "bookingInfo", cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = BookedSeatInfo.class)
+//    @Fetch(FetchMode.SUBSELECT)
+//    @JsonBackReference
+//    private List<BookedSeatInfo> bookedSeatInfos;
 
     @Column(name = "STATUS")
     private String status;
