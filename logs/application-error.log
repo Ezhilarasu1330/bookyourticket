@@ -1024,3 +1024,57 @@
 [INFO ] 2021-08-16 18:27:10.470 [http-nio-9090-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 [INFO ] 2021-08-16 18:27:10.472 [http-nio-9090-exec-1] DispatcherServlet - Completed initialization in 2 ms
 [INFO ] 2021-08-16 18:27:16.975 [http-nio-9090-exec-1] BookingService - User Selected Seats : 5
+[INFO ] 2021-08-16 18:32:02.421 [SpringApplicationShutdownHook] LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 2021-08-16 18:32:02.432 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2021-08-16 18:32:02.464 [SpringApplicationShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 2021-08-16 18:32:14.191 [main] BookyourticketApplication - Starting BookyourticketApplication using Java 1.8.0_201 on DESKTOP-A4G3QG6 with PID 9392 (D:\Task Applications\Book Your Ticket\bookyourticket\target\classes started by Dell in D:\Task Applications\Book Your Ticket\bookyourticket)
+[INFO ] 2021-08-16 18:32:14.215 [main] BookyourticketApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2021-08-16 18:32:17.232 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2021-08-16 18:32:17.605 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 349 ms. Found 8 JPA repository interfaces.
+[INFO ] 2021-08-16 18:32:20.473 [main] TomcatWebServer - Tomcat initialized with port(s): 9090 (http)
+[INFO ] 2021-08-16 18:32:20.575 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[INFO ] 2021-08-16 18:32:20.576 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2021-08-16 18:32:20.577 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.50]
+[INFO ] 2021-08-16 18:32:20.956 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2021-08-16 18:32:20.956 [main] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6588 ms
+[INFO ] 2021-08-16 18:32:21.435 [main] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2021-08-16 18:32:21.933 [main] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2021-08-16 18:32:22.327 [main] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2021-08-16 18:32:22.475 [main] Version - HHH000412: Hibernate ORM core version 5.4.32.Final
+[INFO ] 2021-08-16 18:32:22.820 [main] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2021-08-16 18:32:23.159 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+[INFO ] 2021-08-16 18:32:25.636 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2021-08-16 18:32:25.653 [main] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2021-08-16 18:32:26.860 [main] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2021-08-16 18:32:28.713 [main] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4d8f2cfd, org.springframework.security.web.context.SecurityContextPersistenceFilter@10a0a1e, org.springframework.security.web.header.HeaderWriterFilter@1fa98a22, org.springframework.web.filter.CorsFilter@6d4502ca, org.springframework.security.web.authentication.logout.LogoutFilter@1827fc4e, com.superops.bookyourticket.filter.AuthenticationFilter@28fa541, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4345fd45, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3a709cc7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ab2009f, org.springframework.security.web.session.SessionManagementFilter@3cead673, org.springframework.security.web.access.ExceptionTranslationFilter@40c28b0d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@aa8dce8]
+[INFO ] 2021-08-16 18:32:29.165 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[INFO ] 2021-08-16 18:32:29.206 [main] TomcatWebServer - Tomcat started on port(s): 9090 (http) with context path ''
+[INFO ] 2021-08-16 18:32:29.223 [main] TheatreController - { [/error]} org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+[INFO ] 2021-08-16 18:32:29.225 [main] TheatreController - {GET [/theatre/{id}/screeninfo]} com.superops.bookyourticket.controller.TheatreController#getTheatreInfoAndScreenInfo(Long)
+[INFO ] 2021-08-16 18:32:29.226 [main] TheatreController - {GET [/theatre/{id}]} com.superops.bookyourticket.controller.TheatreController#getTheatreInfo(Long)
+[INFO ] 2021-08-16 18:32:29.228 [main] TheatreController - {POST [/show/{showId}/book]} com.superops.bookyourticket.controller.ShowController#getScreenSeatInfo(BookTicketReqVO)
+[INFO ] 2021-08-16 18:32:29.229 [main] TheatreController - {GET [/show/{showId}/seats]} com.superops.bookyourticket.controller.ShowController#getScreenSeatInfo(Long)
+[INFO ] 2021-08-16 18:32:29.229 [main] TheatreController - {GET [/movies/{id}]} com.superops.bookyourticket.controller.MovieController#getMovieInfo(Long)
+[INFO ] 2021-08-16 18:32:29.230 [main] TheatreController - {POST [/user/register]} com.superops.bookyourticket.controller.UserController#registerUser(UserDetailVO)
+[INFO ] 2021-08-16 18:32:29.230 [main] TheatreController - {GET [/movies/list]} com.superops.bookyourticket.controller.MovieController#getMovieList()
+[INFO ] 2021-08-16 18:32:29.230 [main] TheatreController - { [/error], produces [text/html]} org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
+[INFO ] 2021-08-16 18:32:29.231 [main] TheatreController - {GET [/theatre/list]} com.superops.bookyourticket.controller.TheatreController#getTheatreList()
+[INFO ] 2021-08-16 18:32:29.231 [main] TheatreController - {GET [/theatre/{id}/shows]} com.superops.bookyourticket.controller.TheatreController#getTheatreInfoAndShows(Long)
+[INFO ] 2021-08-16 18:32:29.232 [main] TheatreController - {GET [/theatre/{theatreId}/shows/{showId}/seats]} com.superops.bookyourticket.controller.TheatreController#getAvailableSeats(Long, Long)
+[INFO ] 2021-08-16 18:32:29.232 [main] TheatreController - {POST [/user/authenticate]} com.superops.bookyourticket.controller.UserController#authenticateUser(UserDetailVO)
+[INFO ] 2021-08-16 18:32:29.235 [main] BookyourticketApplication - Started BookyourticketApplication in 16.055 seconds (JVM running for 18.396)
+[INFO ] 2021-08-16 18:32:37.163 [http-nio-9090-exec-1] [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2021-08-16 18:32:37.164 [http-nio-9090-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2021-08-16 18:32:37.165 [http-nio-9090-exec-1] DispatcherServlet - Completed initialization in 1 ms
+[INFO ] 2021-08-16 18:32:55.335 [http-nio-9090-exec-4] ShowInfoService - Screen Name : AGS Screen 1 show count : 2
+[INFO ] 2021-08-16 18:32:55.341 [http-nio-9090-exec-4] ShowInfoService - Screen Name : AGS Screen 2 show count : 2
+[INFO ] 2021-08-16 18:35:03.750 [http-nio-9090-exec-7] ShowInfoService - Screen Name : AGS Screen 1 show count : 2
+[INFO ] 2021-08-16 18:35:03.758 [http-nio-9090-exec-7] ShowInfoService - Screen Name : AGS Screen 2 show count : 2
+[INFO ] 2021-08-16 18:35:26.711 [http-nio-9090-exec-2] ShowInfoService - Screen Name : AGS Screen 1 show count : 2
+[INFO ] 2021-08-16 18:35:26.714 [http-nio-9090-exec-2] ShowInfoService - Screen Name : AGS Screen 2 show count : 2
+[INFO ] 2021-08-16 19:28:03.194 [http-nio-9090-exec-3] ShowInfoService - Screen Name : AGS Screen 1 show count : 2
+[INFO ] 2021-08-16 19:28:03.195 [http-nio-9090-exec-3] ShowInfoService - Screen Name : AGS Screen 2 show count : 2
+[INFO ] 2021-08-16 19:28:13.588 [http-nio-9090-exec-8] ShowInfoService - Screen Name : AGS Screen 1 show count : 2
+[INFO ] 2021-08-16 19:28:13.589 [http-nio-9090-exec-8] ShowInfoService - Screen Name : AGS Screen 2 show count : 2
+[INFO ] 2021-08-16 19:31:23.498 [http-nio-9090-exec-4] ShowInfoService - Screen Name : AGS Screen 1 show count : 2
+[INFO ] 2021-08-16 19:31:23.501 [http-nio-9090-exec-4] ShowInfoService - Screen Name : AGS Screen 2 show count : 2
