@@ -23,7 +23,7 @@
 **Frontend :**
 ```bash
  https://github.com/Ezhilarasu1330/bookyourticket_frontend.git
- cd bookyourticket
+ cd bookyourticket_frontend
 ```
 
 **Backend :**
