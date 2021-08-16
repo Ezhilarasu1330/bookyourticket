@@ -44,7 +44,7 @@ public class ShowController extends BaseController {
         final ResponseVO responseVO = new ResponseVO();
         try {
             final BaseVO response = bookingService.bookSeats(bookTicketReqVO, userId);
-            super.success(responseVO, response, MessageConstants.SUCCESS);
+            super.success(responseVO, response, MessageConstants.BOOKING_SUCCESS_CONFIRMED);
         } catch (final Exception e) {
             super.utilityErrorHandler(responseVO, e);
         }

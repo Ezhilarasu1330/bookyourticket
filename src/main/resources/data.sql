@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 13, 2021 at 04:17 PM
+-- Generation Time: Aug 16, 2021 at 03:52 PM
 -- Server version: 5.7.24-log
 -- PHP Version: 7.2.14
 
@@ -23,6 +23,8 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+-- --------------------------------------------------------
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `movie_info`
@@ -38,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `movie_info` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`movie_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `movie_info`
@@ -52,6 +54,27 @@ INSERT INTO `movie_info` (`movie_id`, `created_at`, `language`, `movie_name`, `r
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `payment_info`
+--
+
+DROP TABLE IF EXISTS `payment_info`;
+CREATE TABLE IF NOT EXISTS `payment_info` (
+  `payment_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `discount_coupon_id` varchar(255) DEFAULT NULL,
+  `payment_method` varchar(255) DEFAULT NULL,
+  `payment_status` varchar(255) DEFAULT NULL,
+  `transaction_id` varchar(255) DEFAULT NULL,
+  `booking_id` bigint(20) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`payment_id`),
+  KEY `FK71aagn5gsa0onk975hm748abj` (`booking_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `screen_info`
 --
 
@@ -59,21 +82,21 @@ DROP TABLE IF EXISTS `screen_info`;
 CREATE TABLE IF NOT EXISTS `screen_info` (
   `screen_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `screen_name` varchar(255) DEFAULT NULL,
-  `no_of_seats` int(11) DEFAULT NULL,
   `theatre_id` bigint(20) DEFAULT NULL,
+  `no_of_seats` int(11) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`screen_id`),
   KEY `FKpiy4gfn1v2i7d05221mra721x` (`theatre_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `screen_info`
 --
 
 INSERT INTO `screen_info` (`screen_id`, `created_at`, `no_of_seats`, `screen_name`, `status`, `updated_at`, `theatre_id`) VALUES
-(1, '2021-08-12 00:00:00', 20, 'AGS Screen 2', 'A', '2021-08-12 00:00:00', 1),
+(1, '2021-08-12 00:00:00', 20, 'AGS Screen 1', 'A', '2021-08-12 00:00:00', 1),
 (2, '2021-08-12 00:00:00', 25, 'AGS Screen 2', 'A', '2021-08-12 00:00:00', 1),
 (3, '2021-08-12 00:00:00', 20, 'INOX Screen 1', 'A', '2021-08-12 00:00:00', 2),
 (4, '2021-08-12 00:00:00', 25, 'INOX Screen 2', 'A', '2021-08-12 00:00:00', 2),
@@ -102,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `screen_seat_info` (
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`screen_seat_id`),
   KEY `FKqhed6f7xs9qv74kqev48lp6jg` (`screen_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=276 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `screen_seat_info`
@@ -394,8 +417,8 @@ INSERT INTO `screen_seat_info` (`screen_seat_id`, `created_at`, `seat_number`, `
 DROP TABLE IF EXISTS `show_info`;
 CREATE TABLE IF NOT EXISTS `show_info` (
   `show_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `movie_id` bigint(20) DEFAULT NULL,
   `screen_id` bigint(20) DEFAULT NULL,
+  `movie_id` bigint(20) DEFAULT NULL,
   `show_end_time` datetime DEFAULT NULL,
   `show_start_time` datetime DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
@@ -404,7 +427,7 @@ CREATE TABLE IF NOT EXISTS `show_info` (
   PRIMARY KEY (`show_id`),
   KEY `FK5hrc3sv5tppbl0c87hheroeti` (`movie_id`),
   KEY `FKlj8wq4m5kwxbjeud0p2wv4but` (`screen_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `show_info`
@@ -444,25 +467,26 @@ INSERT INTO `show_info` (`show_id`, `created_at`, `show_end_time`, `show_start_t
 
 DROP TABLE IF EXISTS `theatre_info`;
 CREATE TABLE IF NOT EXISTS `theatre_info` (
-  `created_at` datetime DEFAULT NULL,
+  `theatre_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `theatre_name` varchar(255) DEFAULT NULL,
   `location` varchar(255) DEFAULT NULL,
+  `logo_url` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
-  `theatre_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`theatre_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `theatre_info`
 --
 
-INSERT INTO `theatre_info` (`theatre_id`, `created_at`, `status`, `location`, `theatre_name`, `updated_at`) VALUES
-(1, '2021-08-13 00:00:00', 'A', 'Chennai', 'AGS Cinemas', '2021-08-13 00:00:00'),
-(2, '2021-08-13 00:00:00', 'A', 'Chennai', 'INOX National', '2021-08-13 00:00:00'),
-(3, '2021-08-13 00:00:00', 'A', 'Chennai', 'Rohini Silver Screens', '2021-08-13 00:00:00'),
-(4, '2021-08-13 00:00:00', 'A', 'Chennai', 'Luxe Cinemas', '2021-08-13 00:00:00'),
-(5, '2021-08-13 00:00:00', 'A', 'Chennai', 'Mayajaal Multiplex', '2021-08-13 00:00:00');
+INSERT INTO `theatre_info` (`theatre_id`, `created_at`, `status`, `location`, `theatre_name`, `updated_at`, `logo_url`) VALUES
+(1, '2021-08-13 00:00:00', 'A', 'Chennai', 'AGS Cinemas', '2021-08-13 00:00:00', '/images/ags_logo.jpg'),
+(2, '2021-08-13 00:00:00', 'A', 'Chennai', 'INOX National', '2021-08-13 00:00:00', '/images/inox_logo.jpg'),
+(3, '2021-08-13 00:00:00', 'A', 'Chennai', 'Rohini Silver Screens', '2021-08-13 00:00:00', '/images/rohini_logo.jpg'),
+(4, '2021-08-13 00:00:00', 'A', 'Chennai', 'Luxe Cinemas', '2021-08-13 00:00:00', '/images/luxe_logo.jpg'),
+(5, '2021-08-13 00:00:00', 'A', 'Chennai', 'Mayajaal Multiplex', '2021-08-13 00:00:00', '/images/mayajaal_logo.jpg');
 
 -- --------------------------------------------------------
 
@@ -473,18 +497,18 @@ INSERT INTO `theatre_info` (`theatre_id`, `created_at`, `status`, `location`, `t
 DROP TABLE IF EXISTS `user_info`;
 CREATE TABLE IF NOT EXISTS `user_info` (
   `user_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `email_id` varchar(255) DEFAULT NULL,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
-  `email_id` varchar(255) DEFAULT NULL,
-  `phone_number` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
+  `phone_number` varchar(255) DEFAULT NULL,
   `user_role` varchar(255) DEFAULT NULL,
   `user_status` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `UKtnbxlxth3tfv935ptm61ki8q9` (`email_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user_info`

@@ -31,10 +31,11 @@ public class MessageConstants {
     public final static String MOVIE_LIST_FETCHED_SUCCESS = "Movie list fetched successfully";
     public final static String MOVIE_INFO_FETCHED_SUCCESS = "Movie info fetched successfully";
     public final static String SCREEN_SEAT_INFO_FETCHED_SUCCESS = "Screen seat info fetched successfully";
+    public final static String BOOKING_SUCCESS_CONFIRMED = "Your seats was blocked. Please make a payment to confirm";
     public final static String USER_REGISTER_SUCCESS = "User registered successfully";
     public final static String USER_AUTHENTICATE_SUCCESS = "User authenticated successfully";
 
     public final static String USER_CAN_BOOK_MAX_6_TICKETS = "Ticket booking limit exceeded. A user a able to book maximux 6 tickets.";
-    public final static String TICKET_ALREADY_BOOKED_BY_OTHER_USER = "Seems oen of the seat already booked by another user. Kindly please select another one";
+    public final static String TICKET_ALREADY_BOOKED_BY_OTHER_USER = "Seems one of the seat already booked by another user. Kindly please select another one";
 
 }
