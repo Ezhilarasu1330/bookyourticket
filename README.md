@@ -20,6 +20,14 @@
 
 **1. Clone this repo by running the following command :-**
 
+**Frontend : **
+```bash
+ https://github.com/Ezhilarasu1330/bookyourticket_frontend.git
+ cd bookyourticket
+```
+
+**Backend :**
+
 ```bash
  git clone https://github.com/Ezhilarasu1330/bookyourticket.git
  cd bookyourticket
