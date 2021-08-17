@@ -41,4 +41,6 @@ spring.datasource.username = root
 spring.datasource.password =
 ```
 
+**Postman REST API Docs :** https://documenter.getpostman.com/view/3744993/Tzz8tdJ5
+
 ## 🤩 Don't forget to give this repo a ⭐ if you like this repo and want to appreciate our efforts
