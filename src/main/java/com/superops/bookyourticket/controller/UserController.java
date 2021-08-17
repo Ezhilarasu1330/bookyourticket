@@ -6,6 +6,8 @@ import com.superops.bookyourticket.service.IUserService;
 import com.superops.bookyourticket.vo.BaseVO;
 import com.superops.bookyourticket.vo.ResponseVO;
 import com.superops.bookyourticket.vo.UserDetailVO;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 @CrossOrigin("*")
 public class UserController extends BaseController {
+
+    private static final Logger applogger = LogManager.getLogger(UserController.class);
 
     @Autowired
     private IUserService userService;
