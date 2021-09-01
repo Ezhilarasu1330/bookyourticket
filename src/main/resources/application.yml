@@ -1,0 +1,73 @@
+# ===============================
+# SERVER
+# ===============================
+
+server:
+  port: 8082
+
+# ===============================
+# PROFILE
+# ===============================
+
+spring:
+  profiles:
+    active: dev
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/book_your_ticket
+    username: root
+    password:
+
+  # ===============================
+  # JPA / HIBERNATE
+  # ===============================
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQL5Dialect
+      current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+    show-sql: true
+
+# ===============================
+# JSON Web Token
+# ===============================
+
+jwt:
+  expiry: 86400000000
+  secret: Y2hvd2tjb3JwUHJhYmFrYXJhbg
+
+---
+
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/book_your_ticket_prod
+    username: root
+    password:
+
+  # ===============================
+  # JPA / HIBERNATE
+  # ===============================
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQL5Dialect
+      current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+    show-sql: true
+
+# ===============================
+# JSON Web Token
+# ===============================
+
+jwt:
+  expiry: 1800000
+  secret: Y2hvd2tjb3JwUHJhYmFrYXJhbg
+
