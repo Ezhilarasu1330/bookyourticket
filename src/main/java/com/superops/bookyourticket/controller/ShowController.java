@@ -40,7 +40,7 @@ public class ShowController extends BaseController {
     }
 
     @PostMapping("/{showId}/book")
-    public ResponseVO getScreenSeatInfo(@RequestBody BookTicketReqVO bookTicketReqVO) {
+    public synchronized ResponseVO getScreenSeatInfo(@RequestBody BookTicketReqVO bookTicketReqVO) {
         final ResponseVO responseVO = new ResponseVO();
         try {
             final BaseVO response = bookingService.bookSeats(bookTicketReqVO, userId);
